@@ -20,6 +20,7 @@ it will show a GTK file chooser.
 
 ## Configuration
 In the file `kaeruftpload.conf` you can set your FTP details.
+
 * host: your FTP server's hostname
 * user: your FTP user
 * password: your FTP user's password
