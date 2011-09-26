@@ -8,7 +8,10 @@ If you use a desktop environment such as XFCE, you can even set the program as o
 of the options in the context menu and upload an array of files in just one click!
 
 If you run it from the command line without specifing with files you want to upload,
-it will show a GTK file chooser.
+it will show a GTK file chooser. This feature works, but the GTK file chooser won't
+hide itself once you have selected the files. This causes nothing usually, but if
+the FTP details you supplied are not correct, the program will hang.
+I am currently working on fixing this issue.
 
 ## Dependencies
 * Python 2
@@ -17,6 +20,7 @@ it will show a GTK file chooser.
 
 ## How to run
 `python ftpupload.py file1 file2 file3`
+
 `./ftpupload.py file1 file2 file3` works too
 
 ## Configuration
