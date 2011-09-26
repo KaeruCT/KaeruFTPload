@@ -20,11 +20,12 @@ it will show a GTK file chooser.
 
 ## Configuration
 In the file `kaeruftpload.conf` you can set your FTP details.
-+host: your FTP server's hostname
-+user: your FTP user
-+password: your FTP user's password
-+directory: the directory in which you want to upload the files
-+url: the url that you would use to access your file (you can leave it empty)
+* host: your FTP server's hostname
+* user: your FTP user
+* password: your FTP user's password
+* directory: the directory in which you want to upload the files
+* url: the url that you would use to access your file (you can leave it 
+empty)
 
 I added the url parameter because I like to copy the links to the files I
 have just uploaded and paste them on IRC or something.
