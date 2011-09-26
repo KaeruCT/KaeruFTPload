@@ -15,8 +15,9 @@ it will show a GTK file chooser.
 * PyGTK
 * pynotify
 
-## Running
-`python ftupload.py files_to_upload`
+## How to run
+`python ftpupload.py file1 file2 file3`
+`./ftpupload.py file1 file2 file3` works too
 
 ## Configuration
 In the file `kaeruftpload.conf` you can set your FTP details.
