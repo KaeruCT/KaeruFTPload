@@ -8,7 +8,9 @@ import pynotify
 class gui:
 	def __init__(self):
 		
+		self.title = "KaeruFTPLoad"
 		self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+		self.window.set_title(self.title)
 		self.window.connect("destroy", self.destroy)
 		self.window.set_position(gtk.WIN_POS_CENTER)
 		self.window.set_size_request(300, 100)
@@ -60,26 +62,39 @@ class gui:
  
 		notification.set_urgency(pynotify.URGENCY_NORMAL)
 		notification.set_timeout(pynotify.EXPIRES_NEVER)
+	
+	def show_error(self, message):
+		self.window.set_size_request(300, 100)
+		self.label.set_text(message)
+		self.label.set_selectable(False)
+		self.window.show()
 
 	def destroy(self, widget, data=None):
 		gtk.main_quit()
 		
 	def start_upload(self, file_names):
-	
-		ftp = ftp_uploader.ftp_uploader(self.host, self.user, self.password, self.directory, self.url)
-
-		result = ftp.upload_files(file_names)
-		self.window.set_size_request(500, 200)
-		self.window.set_title("KaeruFTPLoad")
-		self.window.show()
-		self.label.set_text(result)
+		
+		if len(file_names) == 0:
+			self.show_error("No files selected.")
+		else:
+			self.show_notification()
+			ftp = ftp_uploader.ftp_uploader(self.host, self.user, self.password, self.directory, self.url)
+			result = ftp.upload_files(file_names)
+			
+			if result == 0:
+				self.show_error("Error connecting to the FTP server")
+			elif result == 1:
+				self.show_error("Error uploading files.")
+			else:
+				self.window.set_size_request(500, 200)
+				self.label.set_text(result)
+				self.window.show()
 
 	def main(self, file_names):
 		if len(file_names) == 0:
 			chooser = file_chooser.file_chooser()
 			file_names = chooser.get_files()
-						
-		self.show_notification()	
+							
 		self.start_upload(file_names)
 			
 		gtk.main()

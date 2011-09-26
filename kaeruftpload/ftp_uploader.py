@@ -13,20 +13,28 @@ class ftp_uploader:
 	
 	def upload_files(self, file_names):
 		log = []
-		ftp = FTP(self.host, self.user, self.password)
-
-		ftp.cwd(self.directory)
-
-		for x in file_names:
-			full_name = os.path.abspath(x)
-			file = open(full_name, "rb")
+		
+		try:
+			ftp = FTP(self.host, self.user, self.password)
+			ftp.cwd(self.directory)
+		except:
+			ftp.quit()
+			return 0
+		
+		try:
+			for x in file_names:
+				full_name = os.path.abspath(x)
+				file = open(full_name, "rb")
 			
-			file_name = str(time())+x.split("/").pop();
+				file_name = str(time())+x.split("/").pop();
+		
+				result = self.url+file_name + "\n";
+				result += ftp.storbinary("STOR " + file_name, file)
+				log.append(result)
+		except:
+			ftp.quit()
+			return 1
 			
-			result = self.url+file_name + "\n";
-			result += ftp.storbinary("STOR " + file_name, file)
-			log.append(result)
-
 		ftp.quit()
 		
 		return "\n".join(log)
