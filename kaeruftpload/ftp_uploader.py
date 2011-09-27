@@ -1,5 +1,6 @@
 import sys
 import os.path
+import urllib
 from ftplib import FTP
 from time import time
 
@@ -28,7 +29,7 @@ class ftp_uploader:
 			
 				file_name = str(time())+x.split("/").pop();
 		
-				result = self.url+file_name + "\n";
+				result = self.url + urllib.quote(file_name) + "\n";
 				result += ftp.storbinary("STOR " + file_name, file)
 				log.append(result)
 		except:
