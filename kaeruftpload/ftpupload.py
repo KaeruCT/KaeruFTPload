@@ -7,7 +7,8 @@ import gui
 if __name__ == "__main__":
 
 	config = ConfigParser.ConfigParser()
-	conf_file = os.path.basename("kaeruftpload.conf")
+	conf_file = os.path.abspath(os.path.dirname(__file__)+"/kaeruftpload.conf")
+	print conf_file
 	
 	config.read(conf_file)
 	
