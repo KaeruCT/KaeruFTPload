@@ -3,6 +3,7 @@ import os.path
 import urllib
 from ftplib import FTP
 from time import time
+from zlib import crc32
 
 class ftp_uploader:
 	def __init__(self, host, user, password, directory, url):
@@ -26,8 +27,9 @@ class ftp_uploader:
 			for x in file_names:
 				full_name = os.path.abspath(x)
 				file = open(full_name, "rb")
-			
-				file_name = str(time())+x.split("/").pop();
+				
+				file_hash = str(crc32(file.read(1048576))) # Read in 1MB
+				file_name = "[{0}]{1}".format(file_hash[:3], basename(file_name))
 		
 				result = self.url + urllib.quote(file_name) + "\n";
 				result += ftp.storbinary("STOR " + file_name, file)
