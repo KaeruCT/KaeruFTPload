@@ -7,8 +7,8 @@ having to open up an FTP client.
 If you use a desktop environment such as XFCE, you can even set the program as one
 of the options in the context menu and upload an array of files in just one click!
 
-If you run it from the command line without specifing with files you want to upload,
-it will show a GTK file chooser so you can choose what you want to upload.
+If you run it from the command line without specifing which files you want to upload,
+it will show a GTK file chooser so you can choose some files.
 
 ## Dependencies
 * Python 2
