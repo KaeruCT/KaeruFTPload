@@ -30,7 +30,7 @@ In the file `kaeruftpload.conf` you can set your FTP details.
 * user: your FTP user
 * password: your FTP user's password
 * directory: the directory in which you want to upload the files
-* url: the url that you would use to access your file (you can leave it 
+* url: the url that you would use to access your file (you can leave it
 empty)
 
 I added the url parameter because I like to copy the links to the files I
@@ -42,23 +42,27 @@ not enough.
 ## How to set as context menu option on Thunar
 
 * Open Thunar, then go to Edit > Configure custom actions...
+
   ![Step 1](http://kaeruct.github.io/galleries/kaeruftpload/step1.png)
-  
+
 * Click on the + button here.
   ![Step 2](http://kaeruct.github.io/galleries/kaeruftpload/step2.png)
 
 * Fill in the Name and Description fields. In the command field, enter the location
   of the ftpupload.py file, plus `%f`.
+
   ![Step 3](http://kaeruct.github.io/galleries/kaeruftpload/step3.png)
 
 * Click on the "Appearance Conditions" tab, and check all the checkboxes except for "Directories".
   Then click OK, and close the window.
+
   ![Step 4](http://kaeruct.github.io/galleries/kaeruftpload/step4.png)
 
 * You can now upload files straight from Thunar. All you have to do is right click a file
   or a selection of files, and then select the "Upload" option.
+
   ![Step 5](http://kaeruct.github.io/galleries/kaeruftpload/step5.png)
-  
+
 I'm sure the steps above can be modified for Nautilus and Dolphin as well.
 
 ## Notes
