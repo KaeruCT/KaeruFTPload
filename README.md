@@ -45,7 +45,8 @@ not enough.
 
   ![Step 1](http://kaeruct.github.io/galleries/kaeruftpload/step1.png)
 
-* Click on the + button here.
+* Click on the + button that appears on this window.
+
   ![Step 2](http://kaeruct.github.io/galleries/kaeruftpload/step2.png)
 
 * Fill in the Name and Description fields. In the command field, enter the location
