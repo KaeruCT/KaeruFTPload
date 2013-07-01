@@ -8,15 +8,15 @@ If you use a desktop environment such as XFCE, you can even set the program as o
 of the options in the context menu and upload an array of files in just one click!
 
 If you run it from the command line without specifing with files you want to upload,
-it will show a GTK file chooser. This feature works, but the GTK file chooser won't
-hide itself once you have selected the files. This causes nothing usually, but if
-the FTP details you supplied are not correct, the program will hang.
-I am currently working on fixing this issue.
+it will show a GTK file chooser so you can choose what you want to upload.
 
 ## Dependencies
 * Python 2
 * PyGTK
 * pynotify
+
+To install the above in Ubuntu 13.04 (raring), you can run the following command:
+`sudo apt-get install python python-gtk2 python-notify`
 
 ## How to run
 `python ftpupload.py file1 file2 file3`
@@ -38,6 +38,28 @@ have just uploaded and paste them on IRC or something.
 
 The configuration file has an example setup, just in case the explanation above was
 not enough.
+
+## How to set as context menu option on Thunar
+
+* Open Thunar, then go to Edit > Configure custom actions...
+  ![Step 1](http://kaeruct.github.io/galleries/kaeruftpload/step1.png)
+  
+* Click on the + button here.
+  ![Step 2](http://kaeruct.github.io/galleries/kaeruftpload/step2.png)
+
+* Fill in the Name and Description fields. In the command field, enter the location
+  of the ftpupload.py file, plus `%f`.
+  ![Step 3](http://kaeruct.github.io/galleries/kaeruftpload/step3.png)
+
+* Click on the "Appearance Conditions" tab, and check all the checkboxes except for "Directories".
+  Then click OK, and close the window.
+  ![Step 4](http://kaeruct.github.io/galleries/kaeruftpload/step4.png)
+
+* You can now upload files straight from Thunar. All you have to do is right click a file
+  or a selection of files, and then select the "Upload" option.
+  ![Step 5](http://kaeruct.github.io/galleries/kaeruftpload/step5.png)
+  
+I'm sure the steps above can be modified for Nautilus and Dolphin as well.
 
 ## Notes
 I made this for my own use, so the code might not be the best, I focused
